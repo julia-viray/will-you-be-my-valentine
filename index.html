@@ -53,8 +53,6 @@
 
   <script type="module">
     import confetti from 'https://cdn.skypack.dev/canvas-confetti';
-
-    //Get all required elements
     const yesButton = document.getElementById('yesButton');
     const noButton = document.getElementById('noButton');
     const imageDisplay = document.getElementById('imageDisplay');
@@ -85,30 +83,20 @@
         buttonHeight += 35; // Increase height by 5px on each click
         buttonWidth += 35;
         fontSize += 25; // Increase font size by 1px on each click
-        
         yesButton.style.height = `${buttonHeight}px`; // Update button height
         yesButton.style.width = `${buttonWidth}px`;
         yesButton.style.fontSize = `${fontSize}px`; // Update font size
-        
         if (noClickCount < 6) {
           noButton.textContent = ["No", "Hmmm. Are you sure? :(", "Click the YES button, Idiot!", "Argh! The Audacity!", "You're making me sad :(", "I'm gonna cry..."][noClickCount];
         }
       }
     });
 
-      yesButton.addEventListener('click', () => {
-        
-      // Immediately change the image and update the text
+    yesButton.addEventListener('click', () => {
       imageDisplay.src = './images/us.gif'; // Change to us.gif
       valentineQuestion.textContent = "Yayyy!! I Love You, Love! See youuuuu 💘 "; // Change the question text
-
-      // Hide both buttons
       responseButtons.style.display = 'none'; // Hide both buttons
-
-      // Trigger confetti animation
       confetti(); // Trigger confetti animation
-
-      // Play music
       loveMusic.play();  // Play music when clicking "Yes"
     });
   </script>  
