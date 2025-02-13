@@ -70,15 +70,13 @@
       "./images/image4.gif",
       "./images/image5.gif",
       "./images/error.gif",
-      "./images/noway.gif",
-      "./images/image7.gif",
       "./images/image8.gif",
       "./images/image9.gif",
       "./images/image10.gif",
     ];
   
     noButton.addEventListener('click', function() {
-      if (noClickCount < 9) {
+      if (noClickCount < 8) {
         noClickCount++;
         imageDisplay.src = imagePaths[noClickCount];
         buttonHeight += 35; // Increase height by 5px on each click
@@ -88,7 +86,7 @@
         yesButton.style.width = `${buttonWidth}px`;
         yesButton.style.fontSize = `${fontSize}px`; // Update font size
         if (noClickCount < 9) {
-          noButton.textContent = ["No", "Are you sure?", "Think again, please :(", "Don't do this to me :(", "Processing...", "❌ Error! You must say YES!", "Nice try, but no escape!", "This button is broken", "You don't really mean that, right?😢", "I'm gonna cry..."][noClickCount];
+          noButton.textContent = ["No", "Are you sure?", "Think again, please :(", "Don't do this to me :(", "Processing...", "❌ Error! You must say YES!", "You don't really mean that, right?😢", "I'm gonna cry..."][noClickCount];
         }
       }
     });
