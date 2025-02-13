@@ -69,8 +69,8 @@
     
     const imagePaths = [
       "./images/heart.gif",
-      "./images/image3.gif",
       "./images/image2.gif",
+      "./images/image3.gif",
       "./images/wow.gif",
       "./images/processing.gif",
       "./images/error.gif",
@@ -80,7 +80,7 @@
 
     // "No" button event listener
     noButton.addEventListener('click', function() {
-      if (noClickCount < 6) {
+      if (noClickCount < 7) {
         noClickCount++;
         imageDisplay.src = imagePaths[noClickCount];
         buttonHeight += 35; // Increase height by 5px on each click
@@ -91,8 +91,8 @@
         yesButton.style.width = `${buttonWidth}px`;
         yesButton.style.fontSize = `${fontSize}px`; // Update font size
         
-        if (noClickCount < 7) {
-          noButton.textContent = ["Pleaaaase", "Hmmm. Are you sure? :(", "Wow, just wow!", "Click the YES button, Idiot!", "Argh! The Audacity!", "You're making me sad :(", "I'm gonna cry..."][noClickCount];
+        if (noClickCount < 8) {
+          noButton.textContent = ["No","Pleaaaase", "Hmmm. Are you sure? :(", "Wow, just wow!", "Click the YES button, Idiot!", "Argh! The Audacity!", "You're making me sad :(", "I'm gonna cry..."][noClickCount];
         }
       }
     });
