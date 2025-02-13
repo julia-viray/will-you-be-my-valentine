@@ -53,6 +53,8 @@
 
   <script type="module">
     import confetti from 'https://cdn.skypack.dev/canvas-confetti';
+
+    //Get all required elements
     const yesButton = document.getElementById('yesButton');
     const noButton = document.getElementById('noButton');
     const imageDisplay = document.getElementById('imageDisplay');
@@ -60,10 +62,12 @@
     const responseButtons = document.getElementById('responseButtons');
     const loveMusic = document.getElementById('loveMusic');
   
-    let noClickCount = 0;
+    let noClickCount = 0; // Counter for "No" button clicks
+    let canClickNo = true;  // Flag to manage "No" button clicks
     let buttonHeight = 48; // Starting height in pixels
     let buttonWidth = 80;
     let fontSize = 20; // Starting font size in pixels
+    
     const imagePaths = [
       "./images/image2.gif",
       "./images/image3.gif",
@@ -73,17 +77,26 @@
       "./images/image8.gif",
       "./images/image9.gif",
     ];
-  
+
+    // Function to disable "No" button when "Yes" is clicked
+    const disableNoButton = () => {
+    noButton.disabled = true;  // Disable the button
+    noButton.style.opacity = '0.5';  // Make it look visually disabled
+    };
+
+    // "No" button event listener
     noButton.addEventListener('click', function() {
-      if (noClickCount < 6) {
+      if (noClickCount < 6 && canClickNo) {
         noClickCount++;
         imageDisplay.src = imagePaths[noClickCount];
         buttonHeight += 35; // Increase height by 5px on each click
         buttonWidth += 35;
         fontSize += 25; // Increase font size by 1px on each click
+        
         yesButton.style.height = `${buttonHeight}px`; // Update button height
         yesButton.style.width = `${buttonWidth}px`;
         yesButton.style.fontSize = `${fontSize}px`; // Update font size
+        
         if (noClickCount < 7) {
           noButton.textContent = ["Are you sure?", "Think again, please :(", "Don't do this to me :(", "Processing...", "❌ Error! You must say YES!", "You don't really mean that, right?😢", "I'm gonna cry..."][noClickCount];
         }
@@ -91,10 +104,20 @@
     });
   
     yesButton.addEventListener('click', () => {
+      // Disable "No" button when "Yes" is clicked
+      disableNoButton();
+
+      // Immediately change the image and update the text
       imageDisplay.src = './images/us.gif'; // Change to us.gif
       valentineQuestion.textContent = "Yayyy!! I Love You, Love! See youuuuu 💘 "; // Change the question text
+
+      // Hide both buttons
       responseButtons.style.display = 'none'; // Hide both buttons
+
+      // Trigger confetti animation
       confetti(); // Trigger confetti animation
+
+      // Play music
       loveMusic.play();  // Play music when clicking "Yes"
     });
   </script>  
