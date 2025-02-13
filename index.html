@@ -63,7 +63,6 @@
     const loveMusic = document.getElementById('loveMusic');
   
     let noClickCount = 0; // Counter for "No" button clicks
-    let canClickNo = true;  // Flag to manage "No" button clicks
     let buttonHeight = 48; // Starting height in pixels
     let buttonWidth = 80;
     let fontSize = 20; // Starting font size in pixels
@@ -78,15 +77,9 @@
       "./images/image9.gif",
     ];
 
-    // Function to disable "No" button when "Yes" is clicked
-    const disableNoButton = () => {
-    noButton.disabled = true;  // Disable the button
-    noButton.style.opacity = '0.5';  // Make it look visually disabled
-    };
-
     // "No" button event listener
     noButton.addEventListener('click', function() {
-      if (noClickCount < 6 && canClickNo) {
+      if (noClickCount < 6) {
         noClickCount++;
         imageDisplay.src = imagePaths[noClickCount];
         buttonHeight += 35; // Increase height by 5px on each click
@@ -102,10 +95,6 @@
         }
       }
     });
-  
-    yesButton.addEventListener('click', () => {
-      // Disable "No" button when "Yes" is clicked
-      disableNoButton();
 
       // Immediately change the image and update the text
       imageDisplay.src = './images/us.gif'; // Change to us.gif
