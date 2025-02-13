@@ -76,7 +76,7 @@
     ];
   
     noButton.addEventListener('click', function() {
-      if (noClickCount < 7) {
+      if (noClickCount < 6) {
         noClickCount++;
         imageDisplay.src = imagePaths[noClickCount];
         buttonHeight += 35; // Increase height by 5px on each click
@@ -85,8 +85,8 @@
         yesButton.style.height = `${buttonHeight}px`; // Update button height
         yesButton.style.width = `${buttonWidth}px`;
         yesButton.style.fontSize = `${fontSize}px`; // Update font size
-        if (noClickCount < 8) {
-          noButton.textContent = ["No", "Are you sure?", "Think again, please :(", "Don't do this to me :(", "Processing...", "❌ Error! You must say YES!", "You don't really mean that, right?😢", "I'm gonna cry..."][noClickCount];
+        if (noClickCount < 7) {
+          noButton.textContent = ["Are you sure?", "Think again, please :(", "Don't do this to me :(", "Processing...", "❌ Error! You must say YES!", "You don't really mean that, right?😢", "I'm gonna cry..."][noClickCount];
         }
       }
     });
