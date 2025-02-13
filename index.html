@@ -59,6 +59,7 @@
     const imageDisplay = document.getElementById('imageDisplay');
     const valentineQuestion = document.getElementById('valentineQuestion');
     const responseButtons = document.getElementById('responseButtons');
+    const preloadedImages = [];
   
     let noClickCount = 0;
     let buttonHeight = 48; // Starting height in pixels
@@ -76,6 +77,12 @@
       "./images/image9.gif",
       "./images/image10.gif",
     ];
+
+    imagePaths.forEach(src => {
+      const img = new Image();
+      img.src = src;
+
+      preloadedImages.push(img);
   
     noButton.addEventListener('click', function() {
       if (noClickCount < 9) {
