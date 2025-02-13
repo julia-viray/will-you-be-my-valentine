@@ -62,7 +62,7 @@
     const responseButtons = document.getElementById('responseButtons');
     const loveMusic = document.getElementById('loveMusic');
   
-    let noClickCount = 1; // Counter for "No" button clicks
+    let noClickCount = 0; // Counter for "No" button clicks
     let buttonHeight = 48; // Starting height in pixels
     let buttonWidth = 80;
     let fontSize = 20; // Starting font size in pixels
@@ -79,7 +79,7 @@
 
     // "No" button event listener
     noButton.addEventListener('click', function() {
-      if (noClickCount < 6) {
+      if (noClickCount < 7) {
         noClickCount++;
         imageDisplay.src = imagePaths[noClickCount];
         buttonHeight += 35; // Increase height by 5px on each click
@@ -90,8 +90,8 @@
         yesButton.style.width = `${buttonWidth}px`;
         yesButton.style.fontSize = `${fontSize}px`; // Update font size
         
-        if (noClickCount < 7) {
-          noButton.textContent = ["Pleaaaase", "Hmmm. Are you sure? :(", "Wow, just wow!", "Click the YES button, Idiot!", "Argh! The Audacity!", "You're making me sad :(", "I'm gonna cry..."][noClickCount];
+        if (noClickCount < 8) {
+          noButton.textContent = ["No","Pleaaaase", "Hmmm. Are you sure? :(", "Wow, just wow!", "Click the YES button, Idiot!", "Argh! The Audacity!", "You're making me sad :(", "I'm gonna cry..."][noClickCount];
         }
       }
     });
